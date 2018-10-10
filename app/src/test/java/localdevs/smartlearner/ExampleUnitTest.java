@@ -1,4 +1,4 @@
-package com.example.smart_learner.smartlearner;
+package localdevs.smartlearner;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.example.smart_learner.smartlearner;
+package localdevs.smartlearner;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.smart_learner.smartlearner", appContext.getPackageName());
+        assertEquals("localdevs.smartlearner", appContext.getPackageName());
     }
 }
