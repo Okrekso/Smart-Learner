@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="background_InLogInPage">#25567B</color>
+    <color name="background_InLogInPage">#007ffc</color>
     <color name="colorText_InLogInPage">#fafafa</color>
     <color name="colorBtn_InLogInPage">#0B61A4</color>
     <color name="colorBackgroundTextView_InLogInPage">#0F4FA8</color>

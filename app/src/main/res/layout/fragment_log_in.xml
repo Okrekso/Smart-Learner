@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/background_InLogInPage">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_InLogInPage"
+    tools:context=".Page_Fragments.LogIn">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,50 +30,52 @@
             android:textSize="25sp" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="40dp"
-            android:textColor="@color/colorText_InLogInPage"
-            android:ems="10"
             android:background="@color/colorBackgroundTextView_InLogInPage"
-            android:hint="@string/textview_login"
-            android:textColorHint="@color/colorText_InLogInPage"
-            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:hint="@string/textView_login"
+            android:inputType="text"
             android:padding="15dp"
             android:textAlignment="textStart"
-            android:textSize="20sp"/>
+            android:textColor="@color/colorText_InLogInPage"
+            android:textColorHint="@color/colorText_InLogInPage"
+            android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:background="@color/colorBackgroundTextView_InLogInPage"
             android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
             android:layout_marginTop="10dp"
-            android:textColor="@color/colorText_InLogInPage"
-            android:hint="@string/textview_password"
-            android:textColorHint="@color/colorText_InLogInPage"
+            android:layout_marginRight="40dp"
+            android:background="@color/colorBackgroundTextView_InLogInPage"
+            android:ems="10"
+            android:hint="@string/textView_password"
             android:inputType="textPassword"
             android:padding="15dp"
             android:textAlignment="textStart"
+            android:textColor="@color/colorText_InLogInPage"
+            android:textColorHint="@color/colorText_InLogInPage"
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/login"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginRight="80sp"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="50dp"
-            android:textSize="20sp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginRight="100dp"
             android:background="@color/colorBtn_InLogInPage"
+            android:onClick="LogInOnClick"
+            android:text="@string/btn_text"
+            android:textAlignment="center"
             android:textColor="@color/colorText_InLogInPage"
-            android:text="@string/btn_text" />
+            android:textSize="30sp" />
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</FrameLayout>
