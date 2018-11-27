@@ -12,7 +12,8 @@
         android:name="localdevs.smartlearner.Page_Fragments.The_Main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/container">
+        android:id="@+id/container"
+        tools:layout="@layout/fragment_the__main">
 
     </fragment>
 </FrameLayout>

@@ -6,14 +6,17 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_the_main"
-            android:title="The Main" />
-
+            android:title="The Main"
+            />
+        <item
+            android:id="@+id/nav_user"
+            android:title="User Page" />
         <item
             android:id="@+id/nav_login"
             android:title="Login" />
         <item
             android:id="@+id/nav_settings"
-            android:title="Settings" />
+            android:title="@string/settings" />
         <item
             android:id="@+id/nav_exit"
             android:title="@string/exit" />

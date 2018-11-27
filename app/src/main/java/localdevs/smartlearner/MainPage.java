@@ -1,10 +1,7 @@
 package localdevs.smartlearner;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,15 +10,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import localdevs.smartlearner.Page_Fragments.LogIn;
 import localdevs.smartlearner.Page_Fragments.The_Main;
+import localdevs.smartlearner.Page_Fragments.UserPage;
 
 public class MainPage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     LogIn logIn;
     The_Main the_main;
+    UserPage user_page;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,6 @@ public class MainPage extends AppCompatActivity
         setContentView(R.layout.activity_main_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -40,39 +39,9 @@ public class MainPage extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         logIn = new LogIn();
         the_main = new The_Main();
+        user_page = new UserPage();
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_page, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -81,11 +50,21 @@ public class MainPage extends AppCompatActivity
         int id = item.getItemId();
 
         FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
-
         if (id == R.id.nav_login) {
-            ftrans.replace(R.id.container, logIn);
+            Toast.makeText(
+                    MainPage.this, "Login Page.",Toast.LENGTH_SHORT
+            ).show();
+            ftrans.replace(R.id.container,logIn);
         } else if (id == R.id.nav_the_main) {
+            Toast.makeText(
+                    MainPage.this, "The Main Page.",Toast.LENGTH_SHORT
+            ).show();
             ftrans.replace(R.id.container, the_main);
+        } else if (id == R.id.nav_user) {
+            Toast.makeText(
+                    MainPage.this, "User Page.",Toast.LENGTH_SHORT
+            ).show();
+            ftrans.replace(R.id.container, user_page);
         }
 
         ftrans.commit();
