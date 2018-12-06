@@ -6,7 +6,7 @@ CREATE TABLE `Users`(
 	`Id` 			INT AUTO_INCREMENT PRIMARY KEY,
 	`FirstName` 	VARCHAR(50) NOT NULL DEFAULT "FirstName",
 	`SecondName` 	VARCHAR(50) NOT NULL DEFAULT "SecondName",
-	`PriorityLevel`	INT 		NOT NULL DEFAULT 2 CHECK(PriorityLevel >= 0 AND PriorityLevel <= 4),
+	`PriorityLevel`	INT 		NOT NULL DEFAULT 2 CHECK(`PriorityLevel` >= 0 AND `PriorityLevel` <= 4),
     `Birthday`		DATETIME,
     `GroupID`		INT,
     FOREIGN KEY (`GroupID`) REFERENCES `Group`(`Id`) 
@@ -27,7 +27,9 @@ CREATE TABLE `Subjects`(
 	`Id`		INT AUTO_INCREMENT PRIMARY KEY,
 	`Name`		VARCHAR(50) NOT NULL DEFAULT "Name",
 	`TeacherId`	INT NOT NULL CHECK((SELECT `PriorityLevel` FROM `Users` WHERE `Id` = `TeacherId`) = 1),/*1 - Techer*/
-    FOREIGN KEY (`TeacherId`) REFERENCES `Users`(`Id`)     
+    `PlaceId`	INT NOT NULL,
+    FOREIGN KEY (`TeacherId`) REFERENCES `Users`(`Id`),
+    FOREIGN KEY (`PlaceId`) REFERENCES `Place`(`Id`)    
 );
 
 CREATE TABLE `Groups`(
@@ -46,17 +48,31 @@ CREATE TABLE `News`(
 CREATE TABLE `Visitations`(
 	`Id`		INT AUTO_INCREMENT PRIMARY KEY,
     `UserId`	INT NOT NULL,
-    `SubjectId`	INT,
+    `SubjectId`	INT NOT NULL,
     FOREIGN KEY (`UserId`) REFERENCES `Users`(`Id`),
     FOREIGN KEY (`SubjectId`) REFERENCES `Subjects`(`Id`)
 );
 
 CREATE TABLE `Schedules`(
 	`Id`		INT AUTO_INCREMENT PRIMARY KEY,
-    `Name`		INT NOT NULL,
+    `Name`		VARCHAR(100) NOT NULL,
     `Number`	INT NOT NULL,
     `Time`		DATETIME NOT NULL
 );
+
+CREATE TABLE `Place`(
+	`Id`		INT AUTO_INCREMENT PRIMARY KEY,
+    `Name`		VARCHAR(100) NOT NULL,
+    `Tariff`	INT NOT NULL DEFAULT 0 CHECK(`Tariff` >= 0 AND `Tariff` <= 4)
+); /*`Tariff` : 1 - free, 2-buy 5$, 3 - 20$, 4 - Vip */
+
+CREATE TABLE `PlaceConnection`(
+    `UserId`	INT NOT NULL,
+    `PlaceId`	INT NOT NULL,
+    FOREIGN KEY (`UserId`) REFERENCES `Users`(`Id`),
+    FOREIGN KEY (`PlaceId`) REFERENCES `Place`(`Id`)
+);
+
 
 DELETE FROM `Users`;
 
