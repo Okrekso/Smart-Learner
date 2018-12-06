@@ -11,7 +11,7 @@
     android:orientation="vertical">
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="?attr/actionBarSize"
         android:theme="@style/AppTheme.AppBarOverlay"
         android:id="@+id/AppBar">
 
@@ -21,30 +21,9 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@drawable/style_elements_login_page" />
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/image_user" />
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.design.widget.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/design_default_color_primary">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="English"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Coding"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Matem"/>
-    </android.support.design.widget.BottomNavigationView>
     <include layout="@layout/content_main_page" />
 </android.support.v7.widget.LinearLayoutCompat>
 

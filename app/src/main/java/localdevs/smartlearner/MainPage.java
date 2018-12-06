@@ -14,32 +14,32 @@ import android.widget.Toast;
 
 import localdevs.smartlearner.Page_Fragments.LogIn;
 import localdevs.smartlearner.Page_Fragments.The_Main;
-import localdevs.smartlearner.Page_Fragments.UserPage;
+import localdevs.smartlearner.Page_Fragments.User_Activity;
 
 public class MainPage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     LogIn logIn;
     The_Main the_main;
-    UserPage user_page;
+    User_Activity user_page;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         logIn = new LogIn();
         the_main = new The_Main();
-        user_page = new UserPage();
+        user_page = new User_Activity();
     }
 
 
@@ -64,7 +64,7 @@ public class MainPage extends AppCompatActivity
             Toast.makeText(
                     MainPage.this, "User Page.",Toast.LENGTH_SHORT
             ).show();
-            ftrans.replace(R.id.container, user_page);
+
         }
 
         ftrans.commit();
