@@ -20,6 +20,17 @@ router.get('/:id(\\d+)/users', function (req, res) {
     })
 })
 
+router.get('/:id(\\d+)', function (req, res) {
+
+    db.getPlaceById(req.params['id'], function (result) {
+        if (result != null)
+            res.json(result);
+        else
+            res.status(404).send("Place not found!");
+
+    })
+})
+
 router.get('/:id(\\d+)/subjects', function (req, res) {
 
     db.getSubjectsByPlace(req.params['id'], function (result) {

@@ -118,19 +118,22 @@ getUsersById = function (id, callback) {
 }
 
 module.exports.getUsersByPlace = function (id, callback) {
+
+    var connection = getMySqlConnection();
+
+    connection.connect();
     
-    getUsersIdByPlace(id, function (result) {
-        if (result != null)
-            // console.log(result);
-            getUsersById(result, function(result) {
-                if (result != null)
-                   callback(result);
-                else
-                   callback(null);
-            });
+    var sql = 'SELECT PlaceConnection.UserId, Users.* FROM PlaceConnection RIGHT JOIN Users ON PlaceConnection.UserId = Users.Id WHERE PlaceConnection.PlaceId = ?;'
+    connection.query(sql, [id], function (err, result) {
+        if (err) throw err;
+
+        if (result.length > 0)
+            callback(result);
         else
             callback(null);
     });
+
+    connection.end();
 }
 
 module.exports.getSubjectsByPlace = function (id, callback) {
@@ -140,6 +143,25 @@ module.exports.getSubjectsByPlace = function (id, callback) {
     connection.connect();
     
     var sql = 'SELECT * FROM Subjects WHERE PlaceId = ?';
+    connection.query(sql, [id], function (err, result) {
+        if (err) throw err;
+
+        if (result.length > 0)
+            callback(result);
+        else
+            callback(null);
+    });
+
+    connection.end();
+}
+
+module.exports.getPlaceById = function (id, callback) {
+
+    var connection = getMySqlConnection();
+
+    connection.connect();
+    
+    var sql = 'SELECT * FROM Places WHERE Id = ?';
     connection.query(sql, [id], function (err, result) {
         if (err) throw err;
 
