@@ -59,4 +59,8 @@ public class User_Activity extends AppCompatActivity implements English.OnFragme
     public void onFragmentInteraction(Uri uri) {
 
     }
+
+    public void GoToMenu(){
+
+    }
 }

@@ -1,5 +1,6 @@
 package localdevs.smartlearner;
 
+import android.app.Application;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
@@ -56,15 +57,19 @@ public class MainPage extends AppCompatActivity
             ).show();
             ftrans.replace(R.id.container,logIn);
         } else if (id == R.id.nav_the_main) {
+            //Open Main Page
             Toast.makeText(
                     MainPage.this, "The Main Page.",Toast.LENGTH_SHORT
             ).show();
             ftrans.replace(R.id.container, the_main);
         } else if (id == R.id.nav_user) {
+            //Open User page
             Toast.makeText(
                     MainPage.this, "User Page.",Toast.LENGTH_SHORT
             ).show();
 
+        }else if(id == R.id.nav_exit){
+            //Stop App.
         }
 
         ftrans.commit();
