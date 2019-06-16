@@ -7,10 +7,12 @@
     "test": "jest"
   },
   "dependencies": {
-    "firebase": "^6.0.2",
+    "expo": "^32.0.6",
+    "firebase": "5.7.3",
     "native-base": "^2.12.1",
     "react": "16.8.3",
     "react-native": "0.59.8",
+    "react-navigation": "3.0.9",
     "sudo": "^1.0.3"
   },
   "devDependencies": {

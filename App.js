@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
-import LoginForm from './app/components/auth/login/LoginForm'
 import firebase from 'firebase';
+import { createAppContainer, createSwitchNavigator} from 'react-navigation'
 
+import LoginScreen from './app/components/auth/login/LoginScreen'
+import RegistrationScreen from './app/components/auth/register/RegistrationScreen'
+import WelcomeScreen from './app/components/welcome/WelcomeScreen'
+import MainScreen from './app/components/main/MainScreen'
 
 export default class App extends Component {
   componentDidMount(){
@@ -21,7 +25,16 @@ export default class App extends Component {
 
   render() {
     return (
-      <LoginForm/>
+      <AppNavigator/>
     );
   }
 }
+const AppSwitchNavigator = createSwitchNavigator({
+  LoadingScreen:LoadingScreen,
+  LoginScreen:LoginScreen,
+  RegistrationScreen:RegistrationScreen,
+  WelcomeScreen:WelcomeScreen,
+  MainScreen: MainScreen
+)};
+
+const AppNavigator = createAppContainer(AppSwitchNavigator);

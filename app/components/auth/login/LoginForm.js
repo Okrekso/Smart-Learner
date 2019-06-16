@@ -1,12 +1,28 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View} from 'react-native';
-import firebase from 'firebase';
+import { StyleSheet} from 'react-native';
 
 
 export default class App extends Component {
-    render() {
+  render() {
       return (
-        <Text>Login</Text>
+        
       );
     }
   }
+
+  const AppSwitchNavigator = createSwitchNavigator({
+    LoadingScreen:LoadingScreen,
+    LoginScreen:LoginScreen,
+    WelcomeScreen:WelcomeScreen,
+    MainScreen: MainScreen
+  )}
+  });
+  })
+
+const style = StyleSheet.create({
+  container : {
+    backgroundColor : '#fff',
+    justifyContent : 'center',
+    padding : 10
+  },
+});
